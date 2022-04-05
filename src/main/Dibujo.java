@@ -2,26 +2,32 @@ package main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Dibujo extends JPanel {
 
-    Vista vista = new Vista();
-    private int xMain;
-    private int yMain;
-    private int complejidadMain;
-    private int tamanoMain;
+    private ArrayList<Alfombra> lista = new ArrayList<>();
+    private Color color = new Color(162, 222, 242);
 
-    public Dibujo(int x, int y, int tamano, int complejidad){
-        this.xMain = x;
-        this.yMain = y;
-        this.tamanoMain = tamano;
-        this.complejidadMain = complejidad;
-        this.setBackground(Color.CYAN);
+    public Dibujo(){
+        setBackground(color);
     }
+
+    /*public Dibujo(int x, int y, int tamano, int complejidad){
+       lista.add(new Alfombra(x,y,tamano,complejidad));
+       setBackground(color);
+    }*/
 
     protected void paintComponent(Graphics g){
             super.paintComponent(g);
-            vista.dibujar(g, this.xMain, this.yMain, this.tamanoMain, this.complejidadMain);
+            for(Alfombra elemento : lista){
+                elemento.dibujar(g);
+            }
+    }
+
+    public void addAlfombra(int x, int y, int tamano, int complejidad){
+        lista.add(new Alfombra(x,y,tamano,complejidad));
+        repaint();
     }
 
 }

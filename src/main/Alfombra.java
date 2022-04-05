@@ -1,19 +1,18 @@
 package main;
 
-import javax.swing.*;
 import java.awt.*;
 
-public class Vista {
+public class Alfombra {
     private int xMain;
     private int yMain;
     private int complejidadMain;
     private int tamanoMain;
 
-    public Vista() {
+    public Alfombra() {
 
     }
 
-    public Vista(int x, int y, int tamano, int complejidad) {
+    public Alfombra(int x, int y, int tamano, int complejidad) {
         this.xMain = x;
         this.yMain = y;
         this.tamanoMain = tamano;
@@ -45,8 +44,8 @@ public class Vista {
         this.complejidadMain = complejidadMain;
     }
 
-    public void dibujar(Graphics g, int x, int y, int tamano, int complejidad) {
-        dibujarAlfombra(g, x, y, tamano, complejidad);
+    public void dibujar(Graphics g) {
+        dibujarAlfombra(g, xMain, yMain, tamanoMain, complejidadMain);
     }
 
     public void colocarAlfombra(int x, int y) {
@@ -71,5 +70,6 @@ public class Vista {
         dibujarAlfombra(g, x, y + 2 * newTamano, newTamano, newComplejidad);
         dibujarAlfombra(g, x + newTamano, y + 2 * newTamano, newTamano, newComplejidad);
         dibujarAlfombra(g, x + 2 * newTamano, y + 2 * newTamano, newTamano, newComplejidad);
+
     }
 }
